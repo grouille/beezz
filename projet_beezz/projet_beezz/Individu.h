@@ -24,12 +24,15 @@ public:
 	Individu(Instance*);
 	~Individu();
 
-	void calculer_satisfaction();
-	void empreinte_carbone();
-	void prix();
-	void duree_de_vie();
+	void initialiser_aleatoirement();
 
-	double get_calculer_satisfaction();
+	void update_caracteristics();
+	void calculer_satisfaction();
+	void calculer_empreinte_carbone();
+	void calculer_prix();
+	void calculer_duree_de_vie();
+
+	double get_satisfaction();
 	double get_empreinte_carbone();
 	double get_prix();
 	double get_duree_de_vie();
