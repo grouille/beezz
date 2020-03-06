@@ -28,15 +28,15 @@ public:
 
 
 	//getter methods
-<<<<<<< HEAD
+
 	int get_nb_options_of_parametr(int i);
-=======
+
 	int get_nb_options_of_parametre(int i);
 	double get_note_parametre_option_critere(int i, int j, int c);
 	double get_prix_parametre_option(int i, int j);
 	double get_facteur_parametre_option(int i, int j);
 	double get_duree_de_vie_parametre_option(int i, int j);
->>>>>>> branch 'master' of https://github.com/grouille/beezz.git
+
 
 	int get_souhait_client_pour_critere(int c);
 
