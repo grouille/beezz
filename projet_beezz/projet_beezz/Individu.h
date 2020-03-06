@@ -36,6 +36,18 @@ public:
 	double get_empreinte_carbone();
 	double get_prix();
 	double get_duree_de_vie();
+
+	static int random_int_between(int _min, int _max)
+	{
+		int minimum = min(_min, _max);
+		int maximum = max(_min, _max);
+		random_device                  rand_dev;
+		mt19937                        generator(rand_dev());
+		uniform_int_distribution<int>  distr(minimum, maximum);
+
+		return distr(generator);
+	}
+
 };
 
 #endif // !INDIVIDU_H

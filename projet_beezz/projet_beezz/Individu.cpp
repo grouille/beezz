@@ -15,25 +15,15 @@ void Individu::initialiser_aleatoirement()
 
 	for (int i = 0; i < instance->nombre_parametres; i++)
 	{
-		for (int j = 0; j < instance->get_nb_options_of_parametr_i(i); j++)
+		for (int j = 0; j < instance->get_nb_options_of_parametr(i); j++)
 			instance->set_option_of_parameter(i, j, 0);
 
-		option_choisie_a_un = random_int_between(0, instance->get_nb_options_of_parametr_i(i));
+		option_choisie_a_un = random_int_between(0, instance->get_nb_options_of_parametr(i));
 		instance->set_option_of_parameter(i, option_choisie_a_un, 1);
 	}
 	update_caracteristics();
 }
 
-static int random_int_between(int _min, int _max)
-{
-	int minimum = min(_min, _max);
-	int maximum = max(_min, _max);
-	random_device                  rand_dev;
-	mt19937                        generator(rand_dev());
-	uniform_int_distribution<int>  distr(minimum, maximum);
-
-	return distr(generator);
-}
 
 void Individu::update_caracteristics()
 {
