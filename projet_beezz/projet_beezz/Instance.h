@@ -22,7 +22,6 @@ public:
 
 	//getter methods
 	int get_nb_options_of_parametr(int i);
-	int get_note_parameter_option(int i, int j);
 
 
 };
