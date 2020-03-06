@@ -20,6 +20,8 @@ public:
 
 	void run();
 
+	void best_solutions(int nb_best_ones);
+
 	Individu crossover(Individu parent1, Individu parent2);
 	Individu mutation(Individu indivudu_a_muter);
 
@@ -28,6 +30,8 @@ public:
 	void elaguer_individus_trop_chers(double prix_max);
 
 	void elaguer_individus_pas_ecolo(double seuil);
+
+	void elaguer_individus_mauvaise_duree_de_vie(double duree_vie_minimale_client);
 
 	vector<Individu> individus_non_domines();
 };

@@ -1,23 +1,25 @@
 #include "Instance.h"
 
-Instance::Instance(string file_name) :nb_parametres(), nb_criteres(), nb_options_par_parametre(), valeur_parametre_option_critere(), souhait_critere(), prix_max(), duree_de_vie_minimale(), seuil_ecolo(0.5)
+Instance::Instance(string file_name_matrice_donnes, string file_name_souhait_client) :nb_parametres(), nb_criteres(), nb_options_par_parametre(), valeur_parametre_option_critere(), souhait_critere(), prix_max(), duree_de_vie_minimale(), seuil_ecolo(0.5)
 {
-	lire_instance_a_partir_dun_fichier_csv(file_name);
+	lire_instance_a_partir_dun_fichier_csv(file_name_matrice_donnes, file_name_souhait_client);
 }
 
 Instance::~Instance()
 {
 }
 
-void Instance::lire_instance_a_partir_dun_fichier_csv(string file_name)
+void Instance::lire_instance_a_partir_dun_fichier_csv(string file_name_matrice_donnees, string file_name_souhait_client)
 {
-    valeur_parametre_option_critere = creation_matrice_donnees(file_name);
+    valeur_parametre_option_critere = creation_matrice_donnees(file_name_matrice_donnees);
 
     nb_parametres = valeur_parametre_option_critere.size();
     nb_criteres = 6;
 
     for (int i = 0; i < nb_parametres; i++)
         nb_options_par_parametre.push_back(valeur_parametre_option_critere[i].size());
+
+    souhait_critere = lecture_souhait(file_name_souhait_client);
 }
 
 vector<string> split(string str, string token) {
@@ -75,6 +77,28 @@ vector<vector<vector<double> > > creation_matrice_donnees(string file_name) {
     return tab;
 }
 
+vector<int> lecture_souhait(string file_name_souhait_client)
+{
+    ifstream fichier(file_name_souhait_client, ios::in);  // on ouvre le fichier en lecture
+    vector<int> result;
+
+    if (fichier)  // si l'ouverture a réussi
+    {
+        // instructions
+        string chaine;
+        int number;
+        while (getline(fichier, chaine))
+        {
+            istringstream iss(chaine);
+            iss >> number;
+            result.push_back(number);
+        }
+        fichier.close();  // on ferme le fichier
+    }
+    else  // sinon
+        cerr << "Impossible d'ouvrir le fichier !" << endl;
+    return result;
+}
 
 int Instance::get_nb_options_of_parametre(int i)
 {

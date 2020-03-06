@@ -31,8 +31,34 @@ void AlgoGenetique::run()
 
 		selection();
 	}
+
+	best_solutions(4);
 }
 
+void AlgoGenetique::best_solutions(int nb_best_ones)
+{
+	if (population.individus.empty())
+		throw exception("List of individuals empty !!!");
+	best_individus.clear();
+	vector<bool> individus_deja_dans_best(population.nb_individus, false);
+	double max;
+
+	int index;
+	for (int b = 0; b < nb_best_ones; b++)
+	{
+		max = 0;
+		index = 0;
+		for (int i = 1; i < population.individus.size(); i++)
+			if (population.individus[i].get_satisfaction() > max && !individus_deja_dans_best[i])
+			{
+				max = population.individus[i].get_satisfaction();
+				index = i;
+			}
+		individus_deja_dans_best[index] = true;
+		best_individus.push_back(population.individus[index]);
+	}
+	
+}
 Individu AlgoGenetique::crossover(Individu parent1, Individu parent2)
 {
 	int point_de_coupure = Individu::random_int_between(1, instance->get_nb_parametres()-2);
@@ -82,6 +108,7 @@ void AlgoGenetique::selection()
 {
 	elaguer_individus_pas_ecolo(instance->seuil_ecolo);
 	elaguer_individus_trop_chers(instance->prix_max);
+	elaguer_individus_mauvaise_duree_de_vie(instance->get_duree_de_vie_minimale());
 }
 
 void AlgoGenetique::elaguer_individus_trop_chers(double prix_max)
@@ -108,6 +135,20 @@ void AlgoGenetique::elaguer_individus_pas_ecolo(double seuil)
 		}
 		else
 			i++;
+}
+
+void AlgoGenetique::elaguer_individus_mauvaise_duree_de_vie(double duree_vie_minimale_client)
+{
+	int i = 0;
+	while (i < population.nb_individus)
+	{
+		if (population.individus[i].get_duree_de_vie() < duree_vie_minimale_client)
+		{
+			population.individus.erase(population.individus.begin() + i);
+			population.nb_individus--;
+		}
+	}
+
 }
 
 vector<Individu> AlgoGenetique::individus_non_domines()
