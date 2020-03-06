@@ -1,6 +1,6 @@
 #include "Instance.h"
 
-Instance::Instance(string file_name) :nb_parametres(), nb_criteres(), nb_options_par_parametre(), valeur_parametre_option_critere(), souhait_critere(), prix_max(), duree_de_vie_minimale()
+Instance::Instance(string file_name) :nb_parametres(), nb_criteres(), nb_options_par_parametre(), valeur_parametre_option_critere(), souhait_critere(), prix_max(), duree_de_vie_minimale(), seuil_ecolo(0.5)
 {
 	lire_instance_a_partir_dun_fichier_csv(file_name);
 }

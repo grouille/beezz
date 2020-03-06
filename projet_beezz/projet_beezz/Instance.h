@@ -17,6 +17,7 @@ public:
 	vector<int> souhait_critere;
 	int prix_max;
 	int duree_de_vie_minimale;
+	double seuil_ecolo;
 
 public:
 	Instance(string file_name);
