@@ -4,10 +4,9 @@
 
 #include <iostream>
 #include <vector>
+#include "Instance.h"
 
 using namespace std;
-
-class Instance;
 
 class Individu
 {
@@ -36,6 +35,10 @@ public:
 	double get_empreinte_carbone();
 	double get_prix();
 	double get_duree_de_vie();
+
+	int option_a_un_dun_parametre(int i);
+
+	void into_texte_file(string file_name);
 
 	static int random_int_between(int _min, int _max)
 	{

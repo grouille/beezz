@@ -53,17 +53,34 @@ Individu AlgoGenetique::mutation(Individu indivudu_a_muter)
 {
 	int parametre_a_mutter = Individu::random_int_between(0, instance->get_nb_parametres()-1);
 	int option_a_muter		= Individu::random_int_between(0, instance->get_nb_options_of_parametre(parametre_a_mutter) - 1);
+	int deuxieme_option_a_mutter_au_cas_ou;
+	if (indivudu_a_muter.chromosome[parametre_a_mutter][option_a_muter] == 0)
+	{
+		for (int j = 0; j < instance->get_nb_options_of_parametre(parametre_a_mutter); j++)
+			indivudu_a_muter.chromosome[parametre_a_mutter][j] = 0;
 
-	for (int j = 0; j < instance->get_nb_options_of_parametr(i); j++)
-		instance->set_option_of_parameter(i, j, 0);
+		indivudu_a_muter.chromosome[parametre_a_mutter][option_a_muter] = 1;
+	}
+	else
+	{
+		for (int j = 0; j < instance->get_nb_options_of_parametre(parametre_a_mutter); j++)
+			indivudu_a_muter.chromosome[parametre_a_mutter][option_a_muter] = 0;
 
-	indivudu_a_muter[parametre_a_mutter][option_a_muter] = 1;
+		do
+		{
+			deuxieme_option_a_mutter_au_cas_ou = Individu::random_int_between(0, instance->get_nb_options_of_parametre(parametre_a_mutter) - 1);
+		} while (deuxieme_option_a_mutter_au_cas_ou == option_a_muter);
+
+		indivudu_a_muter.chromosome[parametre_a_mutter][deuxieme_option_a_mutter_au_cas_ou] = 1;
+	}
+
+	indivudu_a_muter.update_caracteristics();
 	return indivudu_a_muter;
 }
 
 void AlgoGenetique::selection()
 {
-	elaguer_individus_pas_ecolo(instance->seuil_ecologie);
+	elaguer_individus_pas_ecolo(instance->seuil_ecolo);
 	elaguer_individus_trop_chers(instance->prix_max);
 }
 
