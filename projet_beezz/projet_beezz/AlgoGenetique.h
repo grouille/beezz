@@ -25,6 +25,10 @@ public:
 
 	void selection();
 
+	void elaguer_individus_trop_chers(double prix_max);
+
+	void elaguer_individus_pas_ecolo(double seuil);
+
 	vector<Individu> individus_non_domines();
 };
 

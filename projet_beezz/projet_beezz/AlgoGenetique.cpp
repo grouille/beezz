@@ -11,6 +11,26 @@ AlgoGenetique::~AlgoGenetique()
 
 void AlgoGenetique::run()
 {
+	population.initialiser_population_aleatoirement();
+	int iteration = 0;
+	int index_parent_1, index_parent_2, index_individu_a_muter;
+	Individu enfant(instance), mutee(instance);
+	while (iteration < nb_iteration_max)
+	{
+		do {
+			index_parent_1 = Individu::random_int_between(0, population.nb_individus - 1);
+			index_parent_2 = Individu::random_int_between(0, population.nb_individus - 1);
+		} while (index_parent_1 == index_parent_2);
+
+		enfant = crossover(population.individus[index_parent_1], population.individus[index_parent_2]);
+		population.individus.push_back(enfant);
+
+		index_individu_a_muter = Individu::random_int_between(0, population.nb_individus - 1);
+		mutee = mutation(population.individus[index_individu_a_muter]);
+		population.individus.push_back(mutee);
+
+		selection();
+	}
 }
 
 Individu AlgoGenetique::crossover(Individu parent1, Individu parent2)
@@ -43,6 +63,34 @@ Individu AlgoGenetique::mutation(Individu indivudu_a_muter)
 
 void AlgoGenetique::selection()
 {
+	elaguer_individus_pas_ecolo(instance->seuil_ecologie);
+	elaguer_individus_trop_chers(instance->prix_max);
+}
+
+void AlgoGenetique::elaguer_individus_trop_chers(double prix_max)
+{
+	int i = 0;
+	while (i < population.nb_individus)
+		if (population.individus[i].get_prix() > prix_max)
+		{
+			population.individus.erase(population.individus.begin() + i);
+			population.nb_individus--;
+		}
+		else
+			i++;
+}
+
+void AlgoGenetique::elaguer_individus_pas_ecolo(double seuil)
+{
+	int i = 0;
+	while (i < population.nb_individus)
+		if (population.individus[i].get_empreinte_carbone() > seuil)
+		{
+			population.individus.erase(population.individus.begin() + i);
+			population.nb_individus--;
+		}
+		else
+			i++;
 }
 
 vector<Individu> AlgoGenetique::individus_non_domines()
