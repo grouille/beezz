@@ -1,0 +1,93 @@
+﻿  AlgoGenetique.cpp
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(42,17): error C3861: 'min' : identificateur introuvable
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(43,17): error C3861: 'max' : identificateur introuvable
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(44,3): error C2065: 'random_device' : identificateur non déclaré
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(44,34): error C2146: erreur de syntaxe : absence de ';' avant l'identificateur 'rand_dev'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(44,34): error C2065: 'rand_dev' : identificateur non déclaré
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(45,3): error C2065: 'mt19937' : identificateur non déclaré
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(45,34): error C2146: erreur de syntaxe : absence de ';' avant l'identificateur 'generator'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(45,44): error C3861: 'rand_dev' : identificateur introuvable
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(45,34): error C3861: 'generator' : identificateur introuvable
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(46,3): error C2065: 'uniform_int_distribution' : identificateur non déclaré
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(46,1): error C2062: type 'int' inattendu
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(48,16): error C2065: 'generator' : identificateur non déclaré
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(48,10): error C3861: 'distr' : identificateur introuvable
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\AlgoGenetique.cpp(38,65): error C2027: utilisation du type non défini 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(10): message : voir la déclaration de 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\AlgoGenetique.cpp(38,88): error C2660: 'Individu::random_int_between' : la fonction ne prend pas 1 arguments
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(40,13): message : voir la déclaration de 'Individu::random_int_between'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\AlgoGenetique.cpp(45,47): error C2027: utilisation du type non défini 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(10): message : voir la déclaration de 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\AlgoGenetique.cpp(54,67): error C2027: utilisation du type non défini 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(10): message : voir la déclaration de 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\AlgoGenetique.cpp(54,90): error C2660: 'Individu::random_int_between' : la fonction ne prend pas 1 arguments
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(40,13): message : voir la déclaration de 'Individu::random_int_between'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\AlgoGenetique.cpp(55,64): error C2027: utilisation du type non défini 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(10): message : voir la déclaration de 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\AlgoGenetique.cpp(55,117): error C2660: 'Individu::random_int_between' : la fonction ne prend pas 1 arguments
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(40,13): message : voir la déclaration de 'Individu::random_int_between'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\AlgoGenetique.cpp(57,30): error C2027: utilisation du type non défini 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(10): message : voir la déclaration de 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\AlgoGenetique.cpp(57,59): error C2065: 'i' : identificateur non déclaré
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\AlgoGenetique.cpp(58,11): error C2027: utilisation du type non défini 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(10): message : voir la déclaration de 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\AlgoGenetique.cpp(58,37): error C2065: 'i' : identificateur non déclaré
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\AlgoGenetique.cpp(60,37): error C2676: '[' binaire : 'Individu' ne définit pas cet opérateur ou une conversion vers un type acceptable pour l'opérateur prédéfini
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\AlgoGenetique.cpp(66,38): error C2027: utilisation du type non défini 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(10): message : voir la déclaration de 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\AlgoGenetique.cpp(67,39): error C2027: utilisation du type non défini 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(10): message : voir la déclaration de 'Instance'
+  Individu.cpp
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(42,17): error C3861: 'min' : identificateur introuvable
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(43,17): error C3861: 'max' : identificateur introuvable
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(44,3): error C2065: 'random_device' : identificateur non déclaré
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(44,34): error C2146: erreur de syntaxe : absence de ';' avant l'identificateur 'rand_dev'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(44,34): error C2065: 'rand_dev' : identificateur non déclaré
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(45,3): error C2065: 'mt19937' : identificateur non déclaré
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(45,34): error C2146: erreur de syntaxe : absence de ';' avant l'identificateur 'generator'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(45,44): error C3861: 'rand_dev' : identificateur introuvable
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(45,34): error C3861: 'generator' : identificateur introuvable
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(46,3): error C2065: 'uniform_int_distribution' : identificateur non déclaré
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(46,1): error C2062: type 'int' inattendu
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(48,16): error C2065: 'generator' : identificateur non déclaré
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(48,10): error C3861: 'distr' : identificateur introuvable
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.cpp(16,30): error C2027: utilisation du type non défini 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(10): message : voir la déclaration de 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.cpp(18,31): error C2027: utilisation du type non défini 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(10): message : voir la déclaration de 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.cpp(19,12): error C2027: utilisation du type non défini 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(10): message : voir la déclaration de 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.cpp(21,55): error C2027: utilisation du type non défini 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(10): message : voir la déclaration de 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.cpp(21,90): error C2660: 'Individu::random_int_between' : la fonction ne prend pas 1 arguments
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(40,13): message : voir la déclaration de 'Individu::random_int_between'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.cpp(22,11): error C2027: utilisation du type non défini 'Instance'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(10): message : voir la déclaration de 'Instance'
+  Instance.cpp
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Instance.cpp(24,1): error C2556: 'int Instance::get_note_parametre_option_critere(int,int,int)' : la fonction surchargée ne diffère que par le type de retour de 'double Instance::get_note_parametre_option_critere(int,int,int)'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Instance.h(31): message : voir la déclaration de 'Instance::get_note_parametre_option_critere'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Instance.cpp(23,15): error C2371: 'Instance::get_note_parametre_option_critere' : redéfinition ; types de base différents
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Instance.h(31): message : voir la déclaration de 'Instance::get_note_parametre_option_critere'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Instance.cpp(33,1): error C2556: 'int Instance::get_prix_parametre_option(int,int)' : la fonction surchargée ne diffère que par le type de retour de 'double Instance::get_prix_parametre_option(int,int)'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Instance.h(32): message : voir la déclaration de 'Instance::get_prix_parametre_option'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Instance.cpp(32,15): error C2371: 'Instance::get_prix_parametre_option' : redéfinition ; types de base différents
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Instance.h(32): message : voir la déclaration de 'Instance::get_prix_parametre_option'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Instance.cpp(40,1): error C2556: 'int Instance::get_duree_de_vie_parametre_option(int,int)' : la fonction surchargée ne diffère que par le type de retour de 'double Instance::get_duree_de_vie_parametre_option(int,int)'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Instance.h(34): message : voir la déclaration de 'Instance::get_duree_de_vie_parametre_option'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Instance.cpp(39,15): error C2371: 'Instance::get_duree_de_vie_parametre_option' : redéfinition ; types de base différents
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Instance.h(34): message : voir la déclaration de 'Instance::get_duree_de_vie_parametre_option'
+  Population.cpp
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(42,17): error C3861: 'min' : identificateur introuvable
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(43,17): error C3861: 'max' : identificateur introuvable
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(44,3): error C2065: 'random_device' : identificateur non déclaré
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(44,34): error C2146: erreur de syntaxe : absence de ';' avant l'identificateur 'rand_dev'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(44,34): error C2065: 'rand_dev' : identificateur non déclaré
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(45,3): error C2065: 'mt19937' : identificateur non déclaré
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(45,34): error C2146: erreur de syntaxe : absence de ';' avant l'identificateur 'generator'
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(45,44): error C3861: 'rand_dev' : identificateur introuvable
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(45,34): error C3861: 'generator' : identificateur introuvable
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(46,3): error C2065: 'uniform_int_distribution' : identificateur non déclaré
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(46,1): error C2062: type 'int' inattendu
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(48,16): error C2065: 'generator' : identificateur non déclaré
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.h(48,10): error C3861: 'distr' : identificateur introuvable
+  Génération de code en cours...
