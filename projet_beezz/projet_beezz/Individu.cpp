@@ -18,7 +18,7 @@ void Individu::initialiser_aleatoirement()
 		for (int j = 0; j < instance->get_nb_options_of_parametr(i); j++)
 			instance->set_option_of_parameter(i, j, 0);
 
-		option_choisie_a_un = random_int_between(0, instance->get_nb_options_of_parametr(i));
+		option_choisie_a_un = random_int_between(0, instance->get_nb_options_of_parametr(i) - 1);
 		instance->set_option_of_parameter(i, option_choisie_a_un, 1);
 	}
 	update_caracteristics();
