@@ -23,7 +23,7 @@ public:
 	~Instance();
 
 	//setter methods
-	void lire_instance_a_partir_dun_fichier_csv();
+	void lire_instance_a_partir_dun_fichier_csv(string file_name);
 
 
 	//getter methods
