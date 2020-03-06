@@ -27,8 +27,14 @@ public:
 	//setter methods
 	void lire_instance_a_partir_dun_fichier_csv(string file_name_matrice_donnes, string file_name_souhait_client);
 
+	vector<string> split(string str, string token);
+
 
 	//getter methods
+
+	vector<vector<vector<double>>> creation_matrice_donnees(string file_name);
+
+	vector<int> lecture_souhait(string file_name_souhait_client);
 
 	int get_nb_options_of_parametre(int i);
 	double get_note_parametre_option_critere(int i, int j, int c);
@@ -43,6 +49,7 @@ public:
 	int get_nb_criteres();
 	int get_nb_prix_max();
 	int get_duree_de_vie_minimale(); // return durée de minimale fixée par le client
+
 
 };
 

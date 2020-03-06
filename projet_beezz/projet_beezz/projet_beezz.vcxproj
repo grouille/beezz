@@ -138,11 +138,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\generation_tableur_values.cpp" />
-    <ClCompile Include="..\..\lecture_parametres_csv.cpp" />
     <ClCompile Include="AlgoGenetique.cpp" />
     <ClCompile Include="Individu.cpp" />
     <ClCompile Include="Instance.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Population.cpp" />
   </ItemGroup>
   <ItemGroup>

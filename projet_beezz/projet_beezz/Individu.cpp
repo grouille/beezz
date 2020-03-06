@@ -176,3 +176,11 @@ void Individu::into_texte_file(string file_name)
 	file << satisfaction << ";" << prix << ";" << duree_de_vie << ";" << empreinte_carbone;
 	file.close();
 }
+
+void Individu::afficher_individu()
+{
+	for (int i = 0; i <= chromosome.size(); i++)
+		cout << option_a_un_dun_parametre(i) + 1 << ";";
+
+	cout <<endl<< "Satisfaction : " << satisfaction << "; " << "Prix : " << prix << "; " << "Duree de vie : " << duree_de_vie << "; " << "Empreinte Carbone : " << empreinte_carbone;
+}

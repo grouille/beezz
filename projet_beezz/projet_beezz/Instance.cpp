@@ -22,7 +22,7 @@ void Instance::lire_instance_a_partir_dun_fichier_csv(string file_name_matrice_d
     souhait_critere = lecture_souhait(file_name_souhait_client);
 }
 
-vector<string> split(string str, string token) {
+vector<string> Instance::split(string str, string token) {
     vector<string>result;
     while (str.size()) {
         double index = str.find(token);
@@ -39,7 +39,7 @@ vector<string> split(string str, string token) {
     return result;
 }
 
-vector<vector<vector<double> > > creation_matrice_donnees(string file_name) {
+vector<vector<vector<double> > > Instance::creation_matrice_donnees(string file_name) {
     ifstream file(file_name);
     int parametre = 1, option = 3;
     string cell;
@@ -77,7 +77,7 @@ vector<vector<vector<double> > > creation_matrice_donnees(string file_name) {
     return tab;
 }
 
-vector<int> lecture_souhait(string file_name_souhait_client)
+vector<int> Instance::lecture_souhait(string file_name_souhait_client)
 {
     ifstream fichier(file_name_souhait_client, ios::in);  // on ouvre le fichier en lecture
     vector<int> result;
