@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include "Instance.h"
+#include <random>
 
 using namespace std;
 

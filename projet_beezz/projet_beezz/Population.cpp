@@ -11,7 +11,7 @@ Population::~Population()
 void Population::initialiser_population_aleatoirement()
 {
 	individus.clear();
-	for (int i; i < nb_individus; i++)
+	for (int i = 0; i < nb_individus; i++)
 	{
 		Individu individu(instance);
 		individu.initialiser_aleatoirement();
