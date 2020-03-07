@@ -46,25 +46,9 @@ void AlgoGenetique::run()
 			selection();
 			iteration++;
 		}
-		best_solutions(4);
-
 	}
+	best_solutions(4);
 
-	vector<pair<Individu, double>> tous_les_meilleurs_individus;
-	pair<Individu, double> couple(Individu(instance), 0);
-	for (int i = 0; i < best_individus.size(); i++)
-	{
-		couple.first = best_individus[i];
-		couple.second = best_individus[i].get_satisfaction();
-		tous_les_meilleurs_individus.push_back(couple);
-	}
-
-	tous_les_meilleurs_individus = sort(tous_les_meilleurs_individus);
-
-	best_individus.clear();
-
-	for (int i = 0; i < 4; i++)
-		best_individus.push_back(tous_les_meilleurs_individus[i].first);
 }
 
 void AlgoGenetique::best_solutions(int nb_best_ones)
@@ -74,19 +58,7 @@ void AlgoGenetique::best_solutions(int nb_best_ones)
 	else
 	{
 		vector<bool> individus_deja_dans_best(population.nb_individus, false);
-		vector<Individu>::iterator it;
-		for (int i = 0; i < population.nb_individus; i++)
-		{
-			if (!best_individus.empty())
-			{
-				it = find(best_individus.begin(), best_individus.end(), population.individus[i]);
-				if (it != best_individus.end())
-					individus_deja_dans_best[i] = true;
-			}
-		}
-		
 		double max;
-			
 		int index;
 		int nb_solutions_souhaite = min(population.nb_individus, nb_best_ones);
 		for (int b = 0; b < nb_solutions_souhaite; b++)
@@ -100,20 +72,9 @@ void AlgoGenetique::best_solutions(int nb_best_ones)
 					index = i;
 				}
 			individus_deja_dans_best[index] = true;
-			
-			vector<Individu>::iterator it;
-			if (!best_individus.empty())
-			{
-				it = find(best_individus.begin(), best_individus.end(), population.individus[index]);
-				if (it != best_individus.end())
-					best_individus.push_back(population.individus[index]);
-			}
-			else
-				best_individus.push_back(population.individus[index]);
+			best_individus.push_back(population.individus[index]);
 		}
 	}
-	
-	
 }
 Individu AlgoGenetique::crossover(Individu parent1, Individu parent2)
 {
