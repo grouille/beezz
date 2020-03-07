@@ -6,7 +6,12 @@ int main()
 
 	int nb_iterations = 500;
 	double temps_max = 100;
+<<<<<<< HEAD
+	int nb_individus = 30;
+
+=======
 	int nb_individus = 150;
+>>>>>>> branch 'master' of https://github.com/grouille/beezz.git
 	AlgoGenetique algo_genetique(&instance, nb_iterations, temps_max, nb_individus);
 	algo_genetique.run();
 
