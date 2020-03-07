@@ -1,6 +1,4 @@
-﻿  AlgoGenetique.cpp
-C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\AlgoGenetique.cpp(55,21): warning C4018: '<' : incompatibilité signed/unsigned
-  main.cpp
-C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\main.cpp(13,20): warning C4018: '<' : incompatibilité signed/unsigned
-  Génération de code en cours...
+﻿  Instance.cpp
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Instance.cpp(35,44): warning C4244: 'argument' : conversion de 'double' en 'const unsigned int', perte possible de données
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Instance.cpp(36,36): warning C4244: 'argument' : conversion de 'double' en 'const unsigned int', perte possible de données
   projet_beezz.vcxproj -> C:\Users\pcpret\Documents\hackAtech\projet_beezz\Debug\projet_beezz.exe

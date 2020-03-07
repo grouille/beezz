@@ -66,6 +66,7 @@ void Individu::calculer_satisfaction()
 		//ajout du pourcentage de la satisfaction par rapport au critere c
 		somme_satisfaction += somme_note_options_a_un / note_max_par_critere * 100;
 	}
+	this->satisfaction = somme_satisfaction;
 }
 
 void Individu::calculer_empreinte_carbone()
@@ -85,7 +86,7 @@ void Individu::calculer_empreinte_carbone()
 		for (int j = 1; j < chromosome[i].size(); j++)
 		{
 			if (instance->get_note_parametre_option_critere(i, j, 1) > note_max_par_parametere)
-				note_max_par_parametere = instance->get_note_parametre_option_critere(i, 0, 1);
+				note_max_par_parametere = instance->get_note_parametre_option_critere(i, j, 1);
 		}
 		//ajouter cette note max
 		note_max_pour_ecologie += note_max_par_parametere;
@@ -186,5 +187,13 @@ void Individu::afficher_individu()
 	for (int i = 0; i < chromosome.size(); i++)
 		cout << option_a_un_dun_parametre(i) + 1 << ";";
 
-	cout <<endl<< "Satisfaction : " << satisfaction << "; " << "Prix : " << prix << "; " << "Duree de vie : " << duree_de_vie << "; " << "Empreinte Carbone : " << empreinte_carbone;
+	string traduction_duree_vie;
+	if (duree_de_vie == 0)
+		traduction_duree_vie = "2 semaines";
+	else
+		if (duree_de_vie == 1)
+			traduction_duree_vie = "2 ans";
+		else
+			traduction_duree_vie = "10 ans";
+	cout <<endl<< "Satisfaction : " << satisfaction << "; " << "Prix : " << prix << "; " << "Duree de vie : " << traduction_duree_vie << "; " << "Empreinte Carbone : " << empreinte_carbone;
 }
