@@ -1,0 +1,20 @@
+/* Page d'accueil */
+
+html, body, #bloc_page {
+  height:100%;
+  margin:0;
+  padding:0;
+  text-align:center;
+  background-color: #254161;
+}
+
+#invisible {
+  height:100%;
+  display:inline-block;
+  vertical-align:middle;  
+}
+
+#logoStart {
+  display:inline-block;   
+  vertical-align:middle;
+}

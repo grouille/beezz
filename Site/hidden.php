@@ -1,0 +1,10 @@
+<input type="hidden" name="max"  value="<?php echo $MAX_POINT;?>" />
+<input type="hidden" name="pts"  value="<?php echo $POINTS;?>" />
+<input type="hidden" name="design"  value="<?php echo $DESIGN;?>" />
+<input type="hidden" name="eco"  value="<?php echo $ECOLOGIE;?>" />
+<input type="hidden" name="be"  value="<?php echo $BIENETRE;?>" />
+<input type="hidden" name="soc"  value="<?php echo $SOCIAL;?>" />
+<input type="hidden" name="eng"  value="<?php echo $ENGAGEMENT;?>" />
+<input type="hidden" name="prod"  value="<?php echo $PRODUCTIVITE;?>" />
+<input type="hidden" name="prix"  value="<?php echo $PRIX;?>" />
+<input type="hidden" name="dv-min"  value="<?php echo $DV_MIN;?>" />
