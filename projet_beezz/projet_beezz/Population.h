@@ -15,7 +15,7 @@ public:
 	Population(Instance* instance, int nb_individus);
 	~Population();
 
-	void initialiser_population_aleatoirement();
+	void initialiser_population_aleatoirement(int nombre_individus_a_ajouter);
 };
 
 #endif

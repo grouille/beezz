@@ -10,6 +10,7 @@ public:
 	Instance* instance;
 	Population population;
 	int nb_iteration_max;
+	int nombre_individus;
 	double max_running_time;
 
 	vector<Individu> best_individus;

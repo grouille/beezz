@@ -2,9 +2,9 @@
 #include <chrono>
 int main()
 {
-	Instance instance("../../parametres_INRIA.csv", "../../data.txt");
+	Instance instance("parametres_INRIA.csv", "data.txt");
 
-	int nb_iterations = 500;
+	int nb_iterations = 100;
 	double temps_max = 100;
 	int nb_individus = 150;
 	AlgoGenetique algo_genetique(&instance, nb_iterations, temps_max, nb_individus);
@@ -13,7 +13,7 @@ int main()
 	chrono::milliseconds _chronoEnd = chrono::duration_cast<chrono::milliseconds>(chrono::system_clock::now().time_since_epoch());
 	chrono::milliseconds _chrono = _chronoEnd - _chronoStart;
 	cout << "L'algorithme a pris\t | " << float(_chrono.count()) / 1000 << " sec |" << endl << endl;
-	string file_name = "../../solutions.txt";
+	string file_name = "solutions.txt";
 	ofstream solutions;
 	for (int i = 0; i < algo_genetique.best_individus.size(); i++)
 	{

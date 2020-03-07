@@ -1,7 +1,7 @@
 #include "AlgoGenetique.h"
 
 AlgoGenetique::AlgoGenetique(Instance* instance, int nb_iteration_max, double max_running_time, int nombre_individus):
-	instance(instance), nb_iteration_max(nb_iteration_max), max_running_time(max_running_time), population(instance, nombre_individus)
+	instance(instance), nb_iteration_max(nb_iteration_max), max_running_time(max_running_time), nombre_individus(nombre_individus), population(instance, nombre_individus)
 {
 }
 
@@ -14,26 +14,37 @@ void AlgoGenetique::run()
 	int iteration = 0;
 	int index_parent_1, index_parent_2, index_individu_a_muter;
 	Individu enfant(instance), mutee(instance);
-
-	population.initialiser_population_aleatoirement();
+	double pourcentage_enfant_de_plus_souhaite = 0.3;
+	double pourcentage_mutants_de_plus_souhaite = 0.01;
+	population.initialiser_population_aleatoirement(nombre_individus);
 	while (iteration < nb_iteration_max)
 	{
-		do {
-			index_parent_1 = Individu::random_int_between(0, population.nb_individus - 1);
-			index_parent_2 = Individu::random_int_between(0, population.nb_individus - 1);
-		} while (index_parent_1 == index_parent_2);
+		cout << "*";
+		for (int i = 0; i < (int)nb_iteration_max * pourcentage_enfant_de_plus_souhaite; i++)
+		{
+			do {
+				index_parent_1 = Individu::random_int_between(0, population.nb_individus - 1);
+				index_parent_2 = Individu::random_int_between(0, population.nb_individus - 1);
+			} while (index_parent_1 == index_parent_2);
 
-		enfant = crossover(population.individus[index_parent_1], population.individus[index_parent_2]);
-		population.individus.push_back(enfant);
-		population.nb_individus++;
+			enfant = crossover(population.individus[index_parent_1], population.individus[index_parent_2]);
+			population.individus.push_back(enfant);
+			population.nb_individus++;
+		}
 
-		index_individu_a_muter = Individu::random_int_between(0, population.nb_individus - 1);
-		mutee = mutation(population.individus[index_individu_a_muter]);
-		population.individus.push_back(mutee);
-		population.nb_individus++;
+		for (int i = 0; i < (int)nb_iteration_max * pourcentage_mutants_de_plus_souhaite; i++)
+		{
+			index_individu_a_muter = Individu::random_int_between(0, population.nb_individus - 1);
+			mutee = mutation(population.individus[index_individu_a_muter]);
+			population.individus.push_back(mutee);
+			population.nb_individus++;
+		}
 
-		selection();
-		iteration++;
+		if(iteration < nb_iteration_max)
+		{
+			selection();
+			iteration++;
+		}
 	}
 
 	best_solutions(4);
@@ -43,24 +54,29 @@ void AlgoGenetique::best_solutions(int nb_best_ones)
 {
 	if (population.individus.empty())
 		throw exception("List of individuals empty !!!");
-	best_individus.clear();
-	vector<bool> individus_deja_dans_best(population.nb_individus, false);
-	double max;
-
-	int index;
-	for (int b = 0; b < nb_best_ones; b++)
+	else
 	{
-		max = 0;
-		index = 0;
-		for (int i = 1; i < population.individus.size(); i++)
-			if (population.individus[i].get_satisfaction() > max && !individus_deja_dans_best[i])
-			{
-				max = population.individus[i].get_satisfaction();
-				index = i;
-			}
-		individus_deja_dans_best[index] = true;
-		best_individus.push_back(population.individus[index]);
+		best_individus.clear();
+		vector<bool> individus_deja_dans_best(population.nb_individus, false);
+		double max;
+
+		int index;
+		int nb_solutions_souhaite = min(population.nb_individus, nb_best_ones);
+		for (int b = 0; b < nb_solutions_souhaite; b++)
+		{
+			max = 0;
+			index = 0;
+			for (int i = 1; i < population.individus.size(); i++)
+				if (population.individus[i].get_satisfaction() > max && !individus_deja_dans_best[i])
+				{
+					max = population.individus[i].get_satisfaction();
+					index = i;
+				}
+			individus_deja_dans_best[index] = true;
+			best_individus.push_back(population.individus[index]);
+		}
 	}
+	
 	
 }
 Individu AlgoGenetique::crossover(Individu parent1, Individu parent2)
@@ -125,15 +141,21 @@ void AlgoGenetique::selection()
 	
 	elaguer_individus_trop_chers(instance->prix_max);
 	if (population.individus.size() == 0)
-		population.initialiser_population_aleatoirement();
+	{
+		population.initialiser_population_aleatoirement(nombre_individus);
+	}
 
 	elaguer_individus_mauvaise_duree_de_vie(instance->get_duree_de_vie_minimale());
 	if (population.individus.size() == 0)
-		population.initialiser_population_aleatoirement();
+	{
+		population.initialiser_population_aleatoirement(nombre_individus);
+	}
 
 	elaguer_individus_pas_ecolo(instance->seuil_ecolo);
 	if (population.individus.size() == 0)
-		population.initialiser_population_aleatoirement();
+	{
+		population.initialiser_population_aleatoirement(nombre_individus);
+	}
 }
 
 void AlgoGenetique::elaguer_individus_trop_chers(double prix_max)
