@@ -74,6 +74,17 @@ void AlgoGenetique::best_solutions(int nb_best_ones)
 	else
 	{
 		vector<bool> individus_deja_dans_best(population.nb_individus, false);
+		vector<Individu>::iterator it;
+		for (int i = 0; i < population.nb_individus; i++)
+		{
+			if (!best_individus.empty())
+			{
+				it = find(best_individus.begin(), best_individus.end(), population.individus[i]);
+				if (it != best_individus.end())
+					individus_deja_dans_best[i] = true;
+			}
+		}
+		
 		double max;
 			
 		int index;
