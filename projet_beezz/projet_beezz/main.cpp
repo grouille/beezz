@@ -7,6 +7,7 @@ int main()
 	int nb_iterations = 50;
 	double temps_max = 100;
 	int nb_individus = 30;
+
 	AlgoGenetique algo_genetique(&instance, nb_iterations, temps_max, nb_individus);
 	algo_genetique.run();
 
