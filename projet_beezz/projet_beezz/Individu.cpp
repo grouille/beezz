@@ -3,6 +3,7 @@
 #include <fstream>
 Individu::Individu(Instance* instance):instance(instance), satisfaction(0), empreinte_carbone(0), prix(0), duree_de_vie(0), chromosome()
 {
+
 }
 
 Individu::~Individu()
@@ -12,11 +13,14 @@ Individu::~Individu()
 void Individu::initialiser_aleatoirement()
 {
 	int option_choisie_a_un;
+	
+	for (int i = 0; i < instance->get_nb_parametres(); i++)
+		chromosome.push_back(vector<int>());
 
 	for (int i = 0; i < instance->get_nb_parametres(); i++)
 	{
 		for (int j = 0; j < instance->get_nb_options_of_parametre(i); j++)
-			chromosome[i][j] = 0;
+			chromosome[i].push_back(0);
 
 		option_choisie_a_un = random_int_between(0, instance->get_nb_options_of_parametre(i) - 1);
 		chromosome[i][option_choisie_a_un] = 1;
@@ -62,6 +66,7 @@ void Individu::calculer_satisfaction()
 		//ajout du pourcentage de la satisfaction par rapport au critere c
 		somme_satisfaction += somme_note_options_a_un / note_max_par_critere * 100;
 	}
+	this->satisfaction = somme_satisfaction;
 }
 
 void Individu::calculer_empreinte_carbone()
@@ -81,7 +86,7 @@ void Individu::calculer_empreinte_carbone()
 		for (int j = 1; j < chromosome[i].size(); j++)
 		{
 			if (instance->get_note_parametre_option_critere(i, j, 1) > note_max_par_parametere)
-				note_max_par_parametere = instance->get_note_parametre_option_critere(i, 0, 1);
+				note_max_par_parametere = instance->get_note_parametre_option_critere(i, j, 1);
 		}
 		//ajouter cette note max
 		note_max_pour_ecologie += note_max_par_parametere;
@@ -170,17 +175,26 @@ void Individu::into_texte_file(string file_name)
 		cerr << "Unable to open file " << file_name << endl;
 	}
 
-	for (int i = 0; i <= chromosome.size(); i++)
+	for (int i = 0; i < chromosome.size(); i++)
 		file << option_a_un_dun_parametre(i) << ";";
 
 	file << satisfaction << ";" << prix << ";" << duree_de_vie << ";" << empreinte_carbone;
+	file << endl;
 	file.close();
 }
 
 void Individu::afficher_individu()
 {
-	for (int i = 0; i <= chromosome.size(); i++)
+	for (int i = 0; i < chromosome.size(); i++)
 		cout << option_a_un_dun_parametre(i) + 1 << ";";
 
-	cout <<endl<< "Satisfaction : " << satisfaction << "; " << "Prix : " << prix << "; " << "Duree de vie : " << duree_de_vie << "; " << "Empreinte Carbone : " << empreinte_carbone;
+	string traduction_duree_vie;
+	if (duree_de_vie == 0)
+		traduction_duree_vie = "2 semaines";
+	else
+		if (duree_de_vie == 1)
+			traduction_duree_vie = "2 ans";
+		else
+			traduction_duree_vie = "10 ans";
+	cout <<endl<< "Satisfaction : " << satisfaction << "; " << "Prix : " << prix << "; " << "Duree de vie : " << traduction_duree_vie << "; " << "Empreinte Carbone : " << empreinte_carbone;
 }

@@ -1,6 +1,6 @@
 #include "Population.h"
 
-Population::Population(Instance * instance, int nb_individus) :instance(instance), individus(), nb_individus()
+Population::Population(Instance * instance, int nb_individus) :instance(instance), individus(), nb_individus(nb_individus)
 {
 }
 
