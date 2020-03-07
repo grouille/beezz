@@ -75,6 +75,18 @@ Individu AlgoGenetique::crossover(Individu parent1, Individu parent2)
 	for (int i = point_de_coupure+1; i < instance->get_nb_parametres(); i++)
 		enfant.chromosome.push_back(parent2.chromosome[i]);
 
+	/*Individu enfant(instance);
+
+	vector<int> parent_choisi_a_chaque_fois(instance->get_nb_parametres());
+	for(int i=0; i < instance->get_nb_parametres(); i++)
+		parent_choisi_a_chaque_fois [i] = Individu::random_int_between(0,1);
+
+	for (int i = 0; i < instance->get_nb_parametres(); i++)
+		if (parent_choisi_a_chaque_fois[i] == 0)
+			enfant.chromosome.push_back(parent1.chromosome[i]);
+		else
+			enfant.chromosome.push_back(parent2.chromosome[i]);*/
+
 	enfant.update_caracteristics();
 	return enfant;
 }
