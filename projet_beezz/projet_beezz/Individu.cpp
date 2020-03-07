@@ -3,6 +3,7 @@
 #include <fstream>
 Individu::Individu(Instance* instance):instance(instance), satisfaction(0), empreinte_carbone(0), prix(0), duree_de_vie(0), chromosome()
 {
+
 }
 
 Individu::~Individu()
@@ -12,11 +13,14 @@ Individu::~Individu()
 void Individu::initialiser_aleatoirement()
 {
 	int option_choisie_a_un;
+	
+	for (int i = 0; i < instance->get_nb_parametres(); i++)
+		chromosome.push_back(vector<int>());
 
 	for (int i = 0; i < instance->get_nb_parametres(); i++)
 	{
 		for (int j = 0; j < instance->get_nb_options_of_parametre(i); j++)
-			chromosome[i][j] = 0;
+			chromosome[i].push_back(0);
 
 		option_choisie_a_un = random_int_between(0, instance->get_nb_options_of_parametre(i) - 1);
 		chromosome[i][option_choisie_a_un] = 1;
@@ -179,7 +183,7 @@ void Individu::into_texte_file(string file_name)
 
 void Individu::afficher_individu()
 {
-	for (int i = 0; i <= chromosome.size(); i++)
+	for (int i = 0; i < chromosome.size(); i++)
 		cout << option_a_un_dun_parametre(i) + 1 << ";";
 
 	cout <<endl<< "Satisfaction : " << satisfaction << "; " << "Prix : " << prix << "; " << "Duree de vie : " << duree_de_vie << "; " << "Empreinte Carbone : " << empreinte_carbone;

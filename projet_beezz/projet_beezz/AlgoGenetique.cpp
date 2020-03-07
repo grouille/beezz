@@ -1,7 +1,7 @@
 #include "AlgoGenetique.h"
 
 AlgoGenetique::AlgoGenetique(Instance* instance, int nb_iteration_max, double max_running_time, int nombre_individus):
-	instance(instance), nb_iteration_max(nb_iteration_max), max_running_time(max_running_time),population(instance, nb_iteration_max)
+	instance(instance), nb_iteration_max(nb_iteration_max), max_running_time(max_running_time), population(instance, nombre_individus)
 {
 }
 
@@ -11,10 +11,11 @@ AlgoGenetique::~AlgoGenetique()
 
 void AlgoGenetique::run()
 {
-	population.initialiser_population_aleatoirement();
 	int iteration = 0;
 	int index_parent_1, index_parent_2, index_individu_a_muter;
 	Individu enfant(instance), mutee(instance);
+
+	population.initialiser_population_aleatoirement();
 	while (iteration < nb_iteration_max)
 	{
 		do {
@@ -24,15 +25,18 @@ void AlgoGenetique::run()
 
 		enfant = crossover(population.individus[index_parent_1], population.individus[index_parent_2]);
 		population.individus.push_back(enfant);
+		population.nb_individus++;
 
 		index_individu_a_muter = Individu::random_int_between(0, population.nb_individus - 1);
 		mutee = mutation(population.individus[index_individu_a_muter]);
 		population.individus.push_back(mutee);
+		population.nb_individus++;
 
 		selection();
+		iteration++;
 	}
 
-	best_solutions(4);
+	best_solutions(0);
 }
 
 void AlgoGenetique::best_solutions(int nb_best_ones)
@@ -106,9 +110,18 @@ Individu AlgoGenetique::mutation(Individu indivudu_a_muter)
 
 void AlgoGenetique::selection()
 {
-	elaguer_individus_pas_ecolo(instance->seuil_ecolo);
+	
 	elaguer_individus_trop_chers(instance->prix_max);
-	elaguer_individus_mauvaise_duree_de_vie(instance->get_duree_de_vie_minimale());
+	if (population.individus.size() == 0)
+		population.initialiser_population_aleatoirement();
+
+	//elaguer_individus_mauvaise_duree_de_vie(instance->get_duree_de_vie_minimale());
+	//if (population.individus.size() == 0)
+	//	population.initialiser_population_aleatoirement();
+
+	//elaguer_individus_pas_ecolo(instance->seuil_ecolo);
+	//if (population.individus.size() == 0)
+	//	population.initialiser_population_aleatoirement();
 }
 
 void AlgoGenetique::elaguer_individus_trop_chers(double prix_max)
@@ -122,6 +135,7 @@ void AlgoGenetique::elaguer_individus_trop_chers(double prix_max)
 		}
 		else
 			i++;
+	population.nb_individus = population.individus.size();
 }
 
 void AlgoGenetique::elaguer_individus_pas_ecolo(double seuil)
@@ -135,6 +149,7 @@ void AlgoGenetique::elaguer_individus_pas_ecolo(double seuil)
 		}
 		else
 			i++;
+	population.nb_individus = population.individus.size();
 }
 
 void AlgoGenetique::elaguer_individus_mauvaise_duree_de_vie(double duree_vie_minimale_client)
@@ -148,7 +163,7 @@ void AlgoGenetique::elaguer_individus_mauvaise_duree_de_vie(double duree_vie_min
 			population.nb_individus--;
 		}
 	}
-
+	population.nb_individus = population.individus.size();
 }
 
 vector<Individu> AlgoGenetique::individus_non_domines()

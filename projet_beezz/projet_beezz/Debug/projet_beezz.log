@@ -1,1 +1,6 @@
-﻿  projet_beezz.vcxproj -> C:\Users\pcpret\Documents\hackAtech\projet_beezz\Debug\projet_beezz.exe
+﻿  AlgoGenetique.cpp
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\AlgoGenetique.cpp(55,21): warning C4018: '<' : incompatibilité signed/unsigned
+  main.cpp
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\main.cpp(13,20): warning C4018: '<' : incompatibilité signed/unsigned
+  Génération de code en cours...
+  projet_beezz.vcxproj -> C:\Users\pcpret\Documents\hackAtech\projet_beezz\Debug\projet_beezz.exe

@@ -19,7 +19,12 @@ void Instance::lire_instance_a_partir_dun_fichier_csv(string file_name_matrice_d
     for (int i = 0; i < nb_parametres; i++)
         nb_options_par_parametre.push_back(valeur_parametre_option_critere[i].size());
 
-    souhait_critere = lecture_souhait(file_name_souhait_client);
+    vector<int> souhait = lecture_souhait(file_name_souhait_client);
+    for (int i = 0; i < nb_criteres; i++)
+    souhait_critere.push_back(souhait[i]);
+
+    prix_max = souhait[nb_criteres];
+    duree_de_vie_minimale = souhait[nb_criteres + 1];
 }
 
 vector<string> Instance::split(string str, string token) {
@@ -41,6 +46,8 @@ vector<string> Instance::split(string str, string token) {
 
 vector<vector<vector<double> > > Instance::creation_matrice_donnees(string file_name) {
     ifstream file(file_name);
+    if (!file.is_open())
+        throw exception("File not opened!!!");
     int parametre = 1, option = 3;
     string cell;
     vector<string> ligne;
