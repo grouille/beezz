@@ -19,6 +19,5 @@ int main()
 		algo_genetique.best_individus[i].into_texte_file(file_name);
 	}
 	solutions.close();
-	system("pause");
 	return 0;
 }
