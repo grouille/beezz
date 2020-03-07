@@ -1,6 +1,9 @@
 #include "Individu.h"
 #include <random>
 #include <fstream>
+Individu::Individu():instance(NULL), satisfaction(0), empreinte_carbone(0), prix(0), duree_de_vie(0), chromosome()
+{
+}
 Individu::Individu(Instance* instance):instance(instance), satisfaction(0), empreinte_carbone(0), prix(0), duree_de_vie(0), chromosome()
 {
 
@@ -198,4 +201,13 @@ void Individu::afficher_individu()
 		else
 			traduction_duree_vie = "10 ans";
 	cout <<endl<< "Satisfaction : " << satisfaction << "; " << "Prix : " << prix << "; " << "Duree de vie : " << traduction_duree_vie << "; " << "Empreinte Carbone : " << empreinte_carbone;
+}
+
+bool Individu::operator==(Individu autre_individu)
+{
+	for (int i = 0; i < chromosome.size(); i++)
+		for (int j = 0; j < chromosome[i].size(); j++)
+			if (chromosome[i][j] != autre_individu.chromosome[i][j])
+				return false;
+	return true;
 }

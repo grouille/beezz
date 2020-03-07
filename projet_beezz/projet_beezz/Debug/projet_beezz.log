@@ -1,4 +1,21 @@
 ﻿  AlgoGenetique.cpp
-C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\AlgoGenetique.cpp(66,21): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\AlgoGenetique.cpp(142,34): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\AlgoGenetique.h(44,21): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\AlgoGenetique.h(46,22): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\AlgoGenetique.cpp(55,20): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\AlgoGenetique.cpp(85,22): warning C4018: '<' : incompatibilité signed/unsigned
+  Individu.cpp
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.cpp(53,21): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.cpp(61,22): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.cpp(81,20): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.cpp(89,21): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.cpp(108,20): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.cpp(117,20): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.cpp(130,20): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.cpp(162,17): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.cpp(165,20): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.cpp(181,20): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.cpp(192,20): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.cpp(208,20): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\pcpret\Documents\hackAtech\projet_beezz\projet_beezz\Individu.cpp(209,21): warning C4018: '<' : incompatibilité signed/unsigned
+  Génération de code en cours...
   projet_beezz.vcxproj -> C:\Users\pcpret\Documents\hackAtech\projet_beezz\Debug\projet_beezz.exe
