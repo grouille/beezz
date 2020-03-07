@@ -36,7 +36,7 @@ void AlgoGenetique::run()
 		iteration++;
 	}
 
-	best_solutions(3);
+	best_solutions(4);
 }
 
 void AlgoGenetique::best_solutions(int nb_best_ones)
@@ -111,13 +111,13 @@ Individu AlgoGenetique::mutation(Individu indivudu_a_muter)
 void AlgoGenetique::selection()
 {
 	
-	/*elaguer_individus_trop_chers(instance->prix_max);
+	elaguer_individus_trop_chers(instance->prix_max);
 	if (population.individus.size() == 0)
-		population.initialiser_population_aleatoirement();*/
+		population.initialiser_population_aleatoirement();
 
-	/*elaguer_individus_mauvaise_duree_de_vie(instance->get_duree_de_vie_minimale());
+	elaguer_individus_mauvaise_duree_de_vie(instance->get_duree_de_vie_minimale());
 	if (population.individus.size() == 0)
-		population.initialiser_population_aleatoirement();*/
+		population.initialiser_population_aleatoirement();
 
 	elaguer_individus_pas_ecolo(instance->seuil_ecolo);
 	if (population.individus.size() == 0)

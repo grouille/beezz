@@ -175,10 +175,11 @@ void Individu::into_texte_file(string file_name)
 		cerr << "Unable to open file " << file_name << endl;
 	}
 
-	for (int i = 0; i <= chromosome.size(); i++)
+	for (int i = 0; i < chromosome.size(); i++)
 		file << option_a_un_dun_parametre(i) << ";";
 
 	file << satisfaction << ";" << prix << ";" << duree_de_vie << ";" << empreinte_carbone;
+	file << endl;
 	file.close();
 }
 
