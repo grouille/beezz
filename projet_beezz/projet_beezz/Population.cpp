@@ -8,13 +8,14 @@ Population::~Population()
 {
 }
 
-void Population::initialiser_population_aleatoirement()
+void Population::initialiser_population_aleatoirement(int nombre_individus_a_ajouter)
 {
 	individus.clear();
-	for (int i = 0; i < nb_individus; i++)
+	for (int i = 0; i < nombre_individus_a_ajouter; i++)
 	{
 		Individu individu(instance);
 		individu.initialiser_aleatoirement();
 		individus.push_back(individu);
 	}
+	nb_individus = individus.size();
 }
