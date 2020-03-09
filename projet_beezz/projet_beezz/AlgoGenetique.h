@@ -35,6 +35,25 @@ public:
 	void elaguer_individus_mauvaise_duree_de_vie(double duree_vie_minimale_client);
 
 	vector<Individu> individus_non_domines();
+
+	vector<pair<Individu, double>> sort(vector<pair<Individu, double>> list)
+	{
+		pair<Individu, double> temporary(Individu(instance), 0);
+		vector<pair<Individu, double>> result = list;
+
+		for (int i = 0; i < result.size(); i++)
+		{
+			for (int j = 0; j < result.size() - 1; j++)
+				if (result[j].second < result[j + 1].second)
+				{
+					temporary = result[j];
+					result[j] = result[j + 1];
+					result[j + 1] = temporary;
+				}
+		}
+
+		return result;
+	}
 };
 
 #endif // !ALGOGENETIQUE_H

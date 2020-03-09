@@ -21,6 +21,7 @@ public:
 	vector<vector<int>> chromosome;
 
 public:
+	Individu();
 	Individu(Instance*);
 	~Individu();
 
@@ -42,6 +43,8 @@ public:
 	void into_texte_file(string file_name);
 
 	void afficher_individu();
+
+	bool operator==(Individu autre_individu);
 
 	static int random_int_between(int _min, int _max)
 	{

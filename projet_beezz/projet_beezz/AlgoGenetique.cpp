@@ -40,14 +40,14 @@ void AlgoGenetique::run()
 			population.nb_individus++;
 		}
 
+
 		if(iteration < nb_iteration_max)
 		{
 			selection();
 			iteration++;
 		}
+		best_solutions(4);
 	}
-
-	best_solutions(4);
 }
 
 void AlgoGenetique::best_solutions(int nb_best_ones)
@@ -56,12 +56,11 @@ void AlgoGenetique::best_solutions(int nb_best_ones)
 		throw exception("List of individuals empty !!!");
 	else
 	{
-		best_individus.clear();
-		vector<bool> individus_deja_dans_best(population.nb_individus, false);
-		double max;
-
-		int index;
 		int nb_solutions_souhaite = min(population.nb_individus, nb_best_ones);
+
+	/*	vector<bool> individus_deja_dans_best(population.nb_individus, false);
+		double max;
+		int index;
 		for (int b = 0; b < nb_solutions_souhaite; b++)
 		{
 			max = 0;
@@ -75,9 +74,32 @@ void AlgoGenetique::best_solutions(int nb_best_ones)
 			individus_deja_dans_best[index] = true;
 			best_individus.push_back(population.individus[index]);
 		}
+		*/
+
+		for (int i = 0; i < population.individus.size(); i++)
+		{
+			if (best_individus.size() < nb_solutions_souhaite)
+			{
+				best_individus.push_back(population.individus[i]);
+			}
+			else
+			{
+				for (int j = 0; j < best_individus.size(); j++)
+				{
+					if (population.individus[i] == best_individus[j])
+						break;
+					if ((population.individus[i].get_satisfaction() > best_individus[j].get_satisfaction()) ||
+						((population.individus[i].get_satisfaction() == best_individus[j].get_satisfaction()) &&
+						(population.individus[i].get_prix() > best_individus[j].get_prix()))
+						)
+					{
+						best_individus[j] = population.individus[i];
+						break;
+					}
+				}
+			}
+		}
 	}
-	
-	
 }
 Individu AlgoGenetique::crossover(Individu parent1, Individu parent2)
 {
@@ -145,11 +167,11 @@ void AlgoGenetique::selection()
 		population.initialiser_population_aleatoirement(nombre_individus);
 	}
 
-	elaguer_individus_mauvaise_duree_de_vie(instance->get_duree_de_vie_minimale());
+	/*elaguer_individus_mauvaise_duree_de_vie(instance->get_duree_de_vie_minimale());
 	if (population.individus.size() == 0)
 	{
 		population.initialiser_population_aleatoirement(nombre_individus);
-	}
+	}*/
 
 	elaguer_individus_pas_ecolo(instance->seuil_ecolo);
 	if (population.individus.size() == 0)
