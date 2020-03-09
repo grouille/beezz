@@ -1,7 +1,6 @@
 <?php
 include("function.php");
 makeFichier($_POST['design'], $_POST['eco'], $_POST['be'], $_POST['soc'], $_POST['eng'], $_POST['prod'], $_POST['prix'], $_POST['dv-min'], $_POST['capa']);
-shell_exec('./projet_beezz');
 ?>
 <!DOCTYPE html>
 

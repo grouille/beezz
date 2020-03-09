@@ -22,12 +22,9 @@ if(isset($_POST['refresh']))
     fclose($fichier);
     $result = readResult($nombre_resultats);
 }
-else
-{
-    $fichier = fopen('solutions.txt', 'w');
-    fclose($fichier);
-}
 $names = names($result, $tab);
+$fichier = fopen("solutions.txt", "w");
+fclose($fichier);
 
 ?>
 
@@ -155,7 +152,30 @@ $names = names($result, $tab);
                                     </tr>
                                     <tr>
                                         <td style="width:25%;"><b>Impact environnemental</b></td>
-                                        <td><?php echo environnement($result[$i], $tab);?> </td>
+                                        <td>
+                                            <?php 
+                                            $env = environnement($result[$i], $tab);
+                                            echo $env;
+                                            if($env == 2 )
+                                            {
+                                                ?>
+                                                <img src="img/eco2.png" class="mr-3" alt="design" width="40" height="40">
+                                                <?php
+                                            }
+                                            elseif($env == 3 )
+                                            {
+                                                ?>
+                                                <img src="img/eco3.png" class="mr-3" alt="design" width="40" height="40">
+                                                <?php
+                                            }
+                                            else
+                                            {
+                                                ?>
+                                                <img src="img/eco3.png" class="mr-3" alt="design" width="40" height="40">
+                                                <?php
+                                            }
+                                            ?>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td style="width:25%;"><b>Temps estimé avant maintenance</b></td>
@@ -189,7 +209,7 @@ $names = names($result, $tab);
                                         <td style="width:25%;"><b>Engagement</b></td>
                                         <td>
                                             <div class="progress">
-                                                <div class="progress-bar progress-bar-striped" role="progressbar" style="background-color:#d2be81 !important; width: <?php echo round(100*moyenne($tab, 8, $result[$i])/total($tab, 8));?>%" aria-valuenow="<?php echo round(100*moyenne($tab, 8, $result[$i])/total($tab, 8));?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div class="progress-bar progress-bar-striped" role="progressbar" style="background-color:#cc816d !important; width: <?php echo round(100*moyenne($tab, 8, $result[$i])/total($tab, 8));?>%" aria-valuenow="<?php echo round(100*moyenne($tab, 8, $result[$i])/total($tab, 8));?>" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </td>
                                     </tr>
@@ -197,7 +217,7 @@ $names = names($result, $tab);
                                         <td style="width:25%;"><b>Productivité</b></td>
                                         <td>
                                             <div class="progress">
-                                                <div class="progress-bar progress-bar-striped" role="progressbar" style="background-color:#cc816d !important; width: <?php echo round(100*moyenne($tab, 9, $result[$i])/total($tab, 9));?>%" aria-valuenow="<?php echo round(100*moyenne($tab, 9, $result[$i])/total($tab, 9));?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div class="progress-bar progress-bar-striped" role="progressbar" style="background-color:#d2be81 !important; width: <?php echo round(100*moyenne($tab, 9, $result[$i])/total($tab, 9));?>%" aria-valuenow="<?php echo round(100*moyenne($tab, 9, $result[$i])/total($tab, 9));?>" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </td>
                                     </tr>
@@ -207,7 +227,24 @@ $names = names($result, $tab);
                         }
                         ?>
                         <input type="hidden" name="refresh"  value=1 />
-                        <input type="submit" class="btn btn-dark btn-lg btn-block" style="background-color:#254161 !important; margin-top:50px; color:#FFF;" value="Modifier"/>
+                        <input type="submit" class="btn btn-dark btn-lg btn-block" style="background-color:#254161 !important; margin-top:50px; border-color:#254161!important; color:#FFF;" value="Modifier"/>
+                    </form>
+                    <form action="accueil.php" method="post">
+                        <?php 
+                        $MAX_POINT = 12;
+                        $POINTS = 0;
+                        $DESIGN = 0;
+                        $ECOLOGIE = 0;
+                        $BIENETRE = 0;
+                        $SOCIAL = 0;
+                        $ENGAGEMENT = 0;
+                        $PRODUCTIVITE = 0;
+                        $PRIX = 9000;
+                        $DV_MIN = "2 Semaines";
+                        $CAPACITE = 2;
+                        include("hidden.php");
+                        ?>
+                        <input type="submit" class="btn btn-dark btn-lg btn-block" style="background-color:#cc816d !important; border-color:#cc816d!important; margin-top:5px; color:#FFF;" value="Nouvelle solution"/>
                         <br/>
                     </form>
                 </div>

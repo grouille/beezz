@@ -69,7 +69,7 @@ $RESTE = $MAX_POINT - $POINTS;
                         					<form action="send.php" method="post">
                         						<input type="hidden" name="name" value="eco" />
                         						<?php include("hidden.php");?>
-	                        					<td><label for="ecologie"><img src="img/ecologie.png" class="mr-3" alt="design" width="60" height="70"></label></td>
+	                        					<td><label for="ecologie"><img src="img/ecologie.png" class="mr-3" alt="design" width="80" height="70"></label></td>
 
 												<td><br/>
 													<div class="my-1 mr-sm-2">
@@ -94,7 +94,7 @@ $RESTE = $MAX_POINT - $POINTS;
                         					<form action="send.php" method="post">
                         						<input type="hidden" name="name" value="be" />
                         						<?php include("hidden.php");?>
-	                        					<td><label for="be"><img src="img/bien-etre.png" class="mr-3" alt="design" width="60" height="70"></label></td>
+	                        					<td><label for="be"><img src="img/bien-etre.png" class="mr-3" alt="design" width="86" height="70"></label></td>
 
 												<td><br/>
 													<div class="my-1 mr-sm-2">
@@ -119,7 +119,7 @@ $RESTE = $MAX_POINT - $POINTS;
                         					<form action="send.php" method="post">
                         						<input type="hidden" name="name" value="soc" />
                         						<?php include("hidden.php");?>
-	                        					<td><label for="social"><img src="img/social.png" class="mr-3" alt="design" width="60" height="70"></label></td>
+	                        					<td><label for="social"><img src="img/social.png" class="mr-3" alt="design" width="70" height="60"></label></td>
 
 												<td><br/>
 													<div class="my-1 mr-sm-2">
@@ -144,7 +144,7 @@ $RESTE = $MAX_POINT - $POINTS;
                         					<form action="send.php" method="post">
                         						<input type="hidden" name="name" value="eng" />
                         						<?php include("hidden.php");?>
-	                        					<td><label for="engagement"><img src="img/engagement.png" class="mr-3" alt="design" width="60" height="70"></label></td>
+	                        					<td><label for="engagement"><img src="img/engagement.png" class="mr-3" alt="design" width="116" height="70"></label></td>
 
 												<td><br/>
 													<div class="my-1 mr-sm-2">
@@ -169,7 +169,7 @@ $RESTE = $MAX_POINT - $POINTS;
                         					<form action="send.php" method="post">
                         						<input type="hidden" name="name" value="prod" />
                         						<?php include("hidden.php");?>
-	                        					<td><label for="productivite"><img src="img/productivite.png" class="mr-3" alt="design" width="60" height="70"></label></td>
+	                        					<td><label for="productivite"><img src="img/productivite.png" class="mr-3" alt="design" width="122" height="70"></label></td>
 
 												<td><br/>
 													<div class="my-1 mr-sm-2">

@@ -1,4 +1,5 @@
 <?php
+exec( '"C:\\wamp64\\www\\beezz\\projet_beezz.exe"' );
 header('Location: resultat.php');
 ?>
 

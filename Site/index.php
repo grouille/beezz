@@ -10,6 +10,8 @@ $PRODUCTIVITE = 0;
 $PRIX = 9000;
 $DV_MIN = "2 Semaines";
 $CAPACITE = 2;
+$fichier = fopen("solutions.txt", "w");
+fclose($fichier);
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +30,7 @@ $CAPACITE = 2;
             </div>
             <!--------------------------------->
             <div id="logoStart">
-                <img src="img/logo-combine.png" alt="Logo">
+                <img src="img/logo-combine.png" style="width: 100%; height: auto;" alt="Logo">
                 <br/>
                 <br/>
                 <form action="accueil.php" method="post">
