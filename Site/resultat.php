@@ -23,8 +23,7 @@ if(isset($_POST['refresh']))
     $result = readResult($nombre_resultats);
 }
 $names = names($result, $tab);
-$fichier = fopen("solutions.txt", "w");
-fclose($fichier);
+
 
 ?>
 
